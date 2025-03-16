@@ -1,0 +1,4 @@
+mutation AddVideo($data: VideoInput!) {
+    addVideo(data: $data)
+}
+

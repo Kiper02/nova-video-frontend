@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ApolloClientProvider } from "@/shared/providers/ApolloClientProvider";
+import Header from "@/shared/components/Header/Header";
+import { ToastProvider } from "@/shared/providers/ToastProvider";
+import { StoreProvider } from "@/shared/providers/StoreProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,12 +16,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
+
   return (
     <html lang="ru">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="bg-[#0F0F0F]"
       >
-        <ApolloClientProvider>{children}</ApolloClientProvider>
+        <ToastProvider />
+        <StoreProvider>
+        <ApolloClientProvider>
+          {/* <ThemeProvider > */}
+            <Header />
+            {children}
+            {/* </ThemeProvider> */}
+        </ApolloClientProvider>
+        </StoreProvider>
       </body>
     </html>
   );

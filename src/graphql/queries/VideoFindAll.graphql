@@ -1,0 +1,7 @@
+query VideoFindAll($data: PaginationInput!) {
+    videoFindAll(data: $data) {
+        id,
+        name,
+        link,
+    }
+}

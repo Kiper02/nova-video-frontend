@@ -1,0 +1,7 @@
+subscription VideoAdded($userId: String!) {
+  videoAdded(userId: $userId) {
+    userId,
+    status,
+    message
+  }
+}

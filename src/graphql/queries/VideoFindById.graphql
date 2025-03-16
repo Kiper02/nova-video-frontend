@@ -1,0 +1,22 @@
+query VideoFindById($videoId: String!) {
+    videoFindById(videoId: $videoId) {
+        id,
+        playlistId,
+        comments {
+            id,
+            content,
+            userId,
+        },
+        description,
+        link,
+        name,
+        numberOfComments,
+        numberOfLikes,
+        numberOfDislikes,
+        user {
+            username,
+        },
+        avatarLink,
+        
+    }
+}
